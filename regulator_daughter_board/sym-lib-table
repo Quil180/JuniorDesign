@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "TPS613222ADBVR")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/library/4/KiCADv6/2026-02-04_19-32-11.kicad_sym")(options "")(descr ""))
+  (lib (name "TPS613221ADBVR")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/library/3/KiCADv6/2026-02-04_19-31-47.kicad_sym")(options "")(descr ""))
+  (lib (name "LQM18PN4R7MFRL")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/library/2/KiCADv6/2026-02-04_19-31-25.kicad_sym")(options "")(descr ""))
+  (lib (name "CL21A226MQQNNNE")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/library/1/KiCADv6/2026-02-04_19-30-47.kicad_sym")(options "")(descr ""))
+)

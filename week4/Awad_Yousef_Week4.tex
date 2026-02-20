@@ -1,0 +1,125 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Essential Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{url}
+
+% Formatting for code snippets
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Title Details
+\title{
+    \textbf{University of Central Florida} \\
+    \textbf{EEL3926L: Junior Design} \\ \vspace{10pt}
+    \textbf{Laboratory 4: KiCad PCB Design}
+}
+\author{Yousef Awad}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This report documents the design of the regulator daughter board PCB. The objective was to translate the regulator prototype into a professional printed circuit board layout, generating the necessary manufacturing files including the schematic, board layout, and bill of materials (BOM).
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+The purpose of this laboratory assignment was to become proficient with the PCB design workflow within KiCad. The specific task involved designing a PCB for a regulator circuit, which includes a TPS613222 boost converter, inductor, capacitors, and status LEDs.
+
+\section{Methodology}
+The design process followed these standard steps:
+\begin{enumerate}
+	\item \textbf{Schematic Capture:} Components were placed and connected in the KiCad Schematic Editor. Custom symbols were verified/created where necessary to match the required footprints.
+	\item \textbf{PCB Layout:} The netlist was updated to the PCB Editor. Components were arranged (placed) to minimize noise and loop area, specifically focusing on the critical loop of the boost converter.
+	\item \textbf{Routing:} Traces were routed with appropriate widths for power (3.3V/5V) and signal lines.
+	\item \textbf{Verification:} Design Rule Checks (DRC) and Electrical Rule Checks (ERC) were performed to ensure manufacturability and electrical connectivity.
+\end{enumerate}
+
+\section{Design Deliverables}
+
+\subsection{Schematic Diagram}
+Figure \ref{fig:schematic} presents the schematic for the regulator daughter board. The circuit utilizes the TPS613222ADBVR regulator, input/output capacitors, and inductor L1.
+
+\begin{figure}[H]
+	\centering
+	% Ensure the filename matches exactly what you uploaded or renamed
+	\includegraphics[width=0.9\textwidth]{schematic.png}
+	\caption{Regulator Daughter Board Schematic (KiCad)}
+	\label{fig:schematic}
+\end{figure}
+
+\subsection{Board Layout}
+The final PCB layout is presented in Figure \ref{fig:layout}. The layout prioritizes the placement of C1, C2, and L1 close to the regulator U1 to minimize parasitic inductance.
+
+\begin{figure}[H]
+	\centering
+	% Ensure the filename matches exactly what you uploaded or renamed
+	\includegraphics[width=0.6\textwidth]{board_layout.png}
+	\caption{Regulator Daughter Board PCB Layout (KiCad)}
+	\label{fig:layout}
+\end{figure}
+
+\subsection{Bill of Materials (BOM)}
+The components used in this design are listed in Table \ref{tab:bom}.
+
+\begin{table}[H]
+	\centering
+	\caption{Bill of Materials}
+	\label{tab:bom}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabular}{|c|l|l|c|l|}
+		\hline
+		\textbf{Id} & \textbf{Designator} & \textbf{Footprint}        & \textbf{Qty} & \textbf{Designation} \\ \hline
+		1           & J1                  & PinSocket\_1x04\_Vertical & 1            & Conn\_01x04          \\ \hline
+		2           & C1, C2              & CAP\_CL21\_SAM            & 2            & CL21A226MQQNNNE      \\ \hline
+		3           & D1                  & LED\_0805                 & 1            & LED                  \\ \hline
+		4           & L1                  & IND\_LQM18P               & 1            & LQM18PN4R7MFRL       \\ \hline
+		5           & U1                  & DBV0005A\_N               & 1            & TPS613222ADBVR       \\ \hline
+		6           & R1                  & R\_1206                   & 1            & 1k$\Omega$           \\ \hline
+	\end{tabular}
+\end{table}
+
+\section{Results and Verification}
+The design passed all Electronic Rule Checks (ERC) and Design Rule Checks (DRC) within KiCad.
+
+\section{Conclusion}
+In this week's assignment, I successfully designed a custom PCB for the regulator circuit using KiCad. I learned how to manage component libraries, route traces effectively for power converters, and generate the necessary fabrication data (Gerbers). This PCB will serve as the power regulation module for the Junior Design project.
+
+\begin{thebibliography}{9}
+	\bibitem{gemini}
+	Google. (2026). \textit{Gemini} [Large language model]. LaTeX template generation. \url{https://gemini.google.com}
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,152 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Required Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}   % For including images
+\usepackage{amsmath}    % For equations
+\usepackage{float}      % For figure placement
+\usepackage{booktabs}   % For professional tables
+\usepackage{hyperref}   % For clickable links
+\usepackage{array}      % REQUIRED for the table fix
+
+% Title Information
+\title{\textbf{EEL3926L Week 6 Laboratory: Datasheet and Research}}
+\author{Yousef Alaa Awad \\ University of Central Florida}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The objective of this laboratory was to research component specifications using datasheets and Ultra Librarian to define the necessary signal connections for the Junior Design Range Finder project. Additionally, the pinout for the MSP430G2553 microprocessor was analyzed to assign specific pins for I2C communication, ADC inputs, and GPIO control. A draft schematic was designed, and the software header library was modified to reflect these pin assignments.
+
+\section{MSP430G2553 Pin Configuration (Procedure 3.1)}
+Table 1 below details the specific pin assignments chosen for the MSP430G2553 chip based on the functional requirements of the project.
+
+\begin{table}[H]
+	\centering
+	\caption{MSP430G2553 Pin Assignments}
+	\vspace{0.2cm}
+	\renewcommand{\arraystretch}{1.5}
+	% FIX: Added >{\raggedright\arraybackslash} to each column to prevent underfull hbox warnings
+	\begin{tabular}{|
+		>{\raggedright\arraybackslash}p{3cm}|
+		>{\raggedright\arraybackslash}p{2.2cm}|
+		>{\raggedright\arraybackslash}p{2cm}|
+		>{\raggedright\arraybackslash}p{3cm}|
+		>{\raggedright\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Function} & \textbf{Pin Name} & \textbf{Pin Number} & \textbf{Connect To}   & \textbf{Description}                                                                        \\
+		\hline
+		Voltage Input     & DVCC              & 1                   & 3.3V Regulator Output & Digital supply voltage                                                                      \\ \hline
+		Ground            & DVSS              & 20                  & Ground                & Ground reference                                                                            \\ \hline
+		SCL Line          & P1.6              & 14                  & SCL Display           & USCI\_B0 I2C mode: SCL I2C clock                                                            \\ \hline
+		SDA Line          & P1.7              & 15                  & SDA Display           & USCI\_B0 I2C mode: SDA I2C data                                                             \\ \hline
+		Echo Line         & P2.0              & 8                   & Echo Sensor           & General-purpose digital I/O pin                                                             \\ \hline
+		Trigger Line      & P2.1              & 9                   & Trigger Sensor        & General-purpose digital I/O pin                                                             \\ \hline
+		ADC Input Line    & P1.0              & 2                   & Potentiometer         & ADC10 analog input A0                                                                       \\ \hline
+		ADC Output Line   & P1.1              & 3                   & PWM LED Input         & General-purpose digital I/O pin                                                             \\ \hline
+		MOSFET Line       & P1.2              & 4                   & MOSFET/LED Input      & General-purpose digital I/O pin                                                             \\ \hline
+		Programmer Test   & SBWTCK            & 17                  & Programming Pins      & Selects test mode for JTAG pins on Port 1. The device protection fuse is connected to TEST. \\ \hline
+		Programmer Reset  & SBWTDIO           & 16                  & Programming Pins      & Reset                                                                                       \\ \hline
+	\end{tabular}
+	\label{tab:msp_pins}
+\end{table}
+
+\pagebreak
+\section{Component Signal Definitions (Procedure 3.2)}
+Below are the defined signal connections for the components used in the Bill of Materials (BOM), based on their respective datasheets.
+
+\subsection*{A. Battery Pack}
+\begin{itemize}
+	\item \textbf{Terminal 1:} 
+	\item \textbf{Terminal 2:} 
+\end{itemize}
+
+\subsection*{B. Switch}
+\begin{itemize}
+	\item \textbf{Pin 1:} 
+	\item \textbf{Pin 2:} 
+  \item \textbf{Pin 3:} 
+\end{itemize}
+
+\subsection*{C. 3.3V Regulator PCB (Female Header)}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+	\item \textbf{Pin 4:}
+\end{itemize}
+
+\subsection*{D. 5V Regulator PCB (Female Header)}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+	\item \textbf{Pin 4:}
+\end{itemize}
+
+\subsection*{E. LCD Display (Male Header)}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+	\item \textbf{Pin 4:}
+\end{itemize}
+
+\subsection*{F. Ultrasonic Sensor (Female Header)}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+	\item \textbf{Pin 4:}
+\end{itemize}
+
+\subsection*{G. Potentiometer}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+\end{itemize}
+
+\subsection*{H. BS170 MOSFET}
+\begin{itemize}
+	\item \textbf{Pin 1:}
+	\item \textbf{Pin 2:}
+	\item \textbf{Pin 3:}
+\end{itemize}
+
+
+\section{Schematic and Header Library}
+
+\subsection{Final Schematic Sketch (Procedure 3.3)}
+Figure \ref{fig:schematic} shows the hand-drawn schematic sketch illustrating the connections defined in Section 2 and 3.
+
+\begin{figure}[H]
+	\centering
+	% REPLACE 'schematic.png' with your actual file name
+	% \includegraphics[width=0.8\textwidth]{schematic.png}
+	\fbox{\begin{minipage}{10cm}\vspace{5cm}\centering [Insert Schematic Image Here]\end{minipage}}
+	\caption{Hand Drawn Schematic for Range Finder Project}
+	\label{fig:schematic}
+\end{figure}
+
+\subsection{Modified Header Library (Procedure 3.4)}
+Figure \ref{fig:header} shows the modifications made to the template header library (lines 88-96) to match the pin definitions.
+
+\begin{figure}[H]
+	\centering
+	% REPLACE 'header_code.png' with your actual file name
+	% \includegraphics[width=0.8\textwidth]{header_code.png}
+	\fbox{\begin{minipage}{10cm}\vspace{5cm}\centering [Insert Header Screenshot Here]\end{minipage}}
+	\caption{Screenshot of Modified Header Library Code}
+	\label{fig:header}
+\end{figure}
+
+\section{Summary}
+% Write a short summary of what you have learned in this lab (Procedure 4.0e).
+In this laboratory, I learned the importance of thoroughly researching component datasheets before beginning the design phase. By defining the pinouts for the MSP430G2553 and the peripheral components, I gained a better understanding of how the subsystems (Power, I2C, ADC, GPIO) interact within the Range Finder project. This preparation ensures that the subsequent PCB design and software implementation will be based on verified signal connections.
+
+\end{document}

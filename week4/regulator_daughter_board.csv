@@ -1,0 +1,7 @@
+Id;Designator;Footprint;Quantity;Designation;Supplier and ref
+1;J1;PinSocket_1x04_P1.00mm_Vertical;1;Conn_01x04;
+2;C1,C2;CAP_CL21_SAM;2;CL21A226MQQNNNE;
+3;D1;LED_0805_2012Metric;1;LED;
+4;L1;IND_LQM18PxxxxFRx_MUR;1;LQM18PN4R7MFRL;
+5;U1;DBV0005A_N;1;TPS613222ADBVR;
+6;R1;R_1206_3216Metric;1;1k;

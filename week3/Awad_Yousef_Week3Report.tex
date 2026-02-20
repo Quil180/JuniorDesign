@@ -1,0 +1,225 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{siunitx}
+
+\geometry{margin=1in}
+\sisetup{detect-all, per-mode=symbol}
+
+% Replace these two values from your scope screenshots:
+\newcommand{\VrippleThreeThree}{\textbf{XX mV\textsubscript{pp}}}
+\newcommand{\VrippleFive}{\textbf{XX mV\textsubscript{pp}}}
+
+\title{EEL3926L Week 3 Laboratory: Regulator Prototype}
+\author{Yousef Alaa Awad \\ University of Central Florida}
+\date{February 15, 2026}
+
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
+\pdfminorversion=5
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The objective of this laboratory was to prototype and verify the \SI{3.3}{V} and \SI{5.0}{V} regulator circuits designed in WEBench. The circuits were assembled on a breadboard, and key performance metrics such as output voltage ($V_{out}$), load regulation, efficiency, and output ripple were measured and analyzed.
+
+\section{3.3V Regulator Analysis}
+
+\subsection{Verification and Measurements (Steps a--e)}
+\begin{itemize}
+	\item LED Resistor ($R_{LED}$): \SI{98.9}{\ohm}
+	\item Output Voltage (No Load) ($V_{out}$): \SI{3.32431}{V}
+	\item LED Forward Voltage ($V_F$): \SI{2.033}{V}
+\end{itemize}
+
+\begin{equation}
+	I_{LED} = \frac{V_{out} - V_F}{R_{LED}} = \frac{3.32431 - 2.033}{98.9} = 0.01306 \,\text{A}
+\end{equation}
+
+\subsection{Load Testing and Power Analysis (Steps f--j)}
+\begin{itemize}
+	\item Load Resistance ($R$): \SI{100}{\ohm}
+	\item Output Voltage (Loaded): \SI{3.263}{V}
+	\item Measured Load Current ($I_{res}$): \SI{0.032}{A}
+\end{itemize}
+
+\begin{equation}
+	I_{out} = I_{LED} + I_{res} = 0.01306 + 0.032 = 0.04506 \,\text{A}
+\end{equation}
+
+\begin{equation}
+	P_{out} = I_{out} \cdot V_{out} = 0.04506 \times 3.32431 = 0.1498 \,\text{W}
+\end{equation}
+
+\begin{itemize}
+	\item Input Voltage ($V_{in}$): \SI{2.9}{V}
+	\item Input Current ($I_{in}$): \SI{0.055}{A}
+\end{itemize}
+
+\begin{equation}
+	P_{in} = V_{in} \cdot I_{in} = 2.9 \times 0.055 = 0.1595 \,\text{W}
+\end{equation}
+
+\begin{equation}
+	\eta = \frac{P_{out}}{P_{in}} \times 100 = \frac{0.1498}{0.1595} \times 100 \approx 93.92\%
+\end{equation}
+
+\subsection{Output Ripple}
+\begin{itemize}
+	\item Peak-to-peak ripple voltage: $\approx \SI{870}{mV_{pp}}$
+	\item Switching frequency: $\approx \SI{12.746}{MHz}$
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/33v_breadboard_1.jpg}
+		\caption{3.3V Circuit}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/33v_vout_multimeter.jpg}
+		\caption{Voltage Measurements}
+	\end{subfigure}
+	\caption{3.3V Regulator Circuit and Measurements}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/33v_oscilloscope.jpg}
+		\caption{Output Ripple (Oscilloscope)}
+	\end{subfigure}
+	\caption{3.3V Output Ripple Analysis}
+\end{figure}
+
+\newpage
+\section{5V Regulator Analysis}
+
+\subsection{Verification and Measurements (Steps a--e)}
+\begin{itemize}
+	\item LED Resistor ($R_{LED}$): \SI{199.38}{\ohm}
+	\item Output Voltage (No Load) ($V_{out}$): \SI{5.007}{V}
+	\item LED Forward Voltage ($V_F$): \SI{2.85}{V}
+\end{itemize}
+
+\begin{equation}
+	I_{LED} = \frac{V_{out} - V_F}{R_{LED}} = \frac{5.007 - 2.85}{199.38} = 0.010796 \,\text{A}
+\end{equation}
+
+\subsection{Load Testing and Power Analysis (Steps f--j)}
+\begin{itemize}
+	\item Load Resistance ($R$): \SI{200}{\ohm}
+	\item Output Voltage (Loaded): \SI{4.856}{V}
+	\item Measured Load Current ($I_{res}$): \SI{0.022}{A}
+\end{itemize}
+
+\begin{equation}
+	I_{out} = I_{LED} + I_{res} = 0.010796 + 0.022 = 0.032796 \,\text{A}
+\end{equation}
+
+\begin{equation}
+	P_{out} = I_{out} \cdot V_{out} = 0.032796 \times 5.007 = 0.16421 \,\text{W}
+\end{equation}
+
+\begin{itemize}
+	\item Input Voltage ($V_{in}$): \SI{2.9}{V}
+	\item Input Current ($I_{in}$): \SI{0.062}{A}
+\end{itemize}
+
+\begin{equation}
+	P_{in} = V_{in} \cdot I_{in} = 2.9 \times 0.062 = 0.1798 \,\text{W}
+\end{equation}
+
+\begin{equation}
+	\eta = \frac{P_{out}}{P_{in}} \times 100 = \frac{0.16421}{0.1798} \times 100 \approx 91.33\%
+\end{equation}
+
+\subsection{Output Ripple}
+\begin{itemize}
+	\item Peak-to-peak ripple voltage: $\approx \SI{3.6848}{V_{pp}}$
+	\item Switching frequency: $\approx \SI{74.58}{MHz}$
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_breadboard.jpg}
+		\caption{5V Circuit}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_vf.jpg}
+		\caption{Voltage Measurements (Vf)}
+	\end{subfigure}
+	\caption{5V Circuit and Measurements}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_vout_multimeter.jpg}
+		\caption{Vout Measurement}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_vout_electronicload.jpg}
+		\caption{Vout with Electronic Load}
+	\end{subfigure}
+	\caption{5V Output Voltage Measurements}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_Iin_powersupply.jpg}
+		\caption{Input Current (Iin)}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{pics/5v_oscilloscope.jpg}
+		\caption{Output Ripple (Oscilloscope)}
+	\end{subfigure}
+	\caption{5V Input Power and Output Ripple Analysis}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{pics/5v_thermal.jpg}
+	\caption{Thermal Image of 5V Regulator Circuit (Procedure 5.0b)}
+\end{figure}
+
+\newpage
+\section{Discussion and Questions}
+
+\subsection{Efficiency Comparison}
+Both regulators demonstrated high efficiency under load.
+\begin{itemize}
+	\item The 3.3V regulator achieved an efficiency of approximately \textbf{93.92\%}.
+	\item The 5V regulator achieved an efficiency of approximately \textbf{91.33\%}.
+\end{itemize}
+These values are consistent with the expected performance of switching regulators and are close to the efficiencies predicted by WEBench for similar operating conditions.
+
+\subsection{Ripple Performance}
+The measured output ripple for the 3.3V regulator was approximately \SI{870}{mV\textsubscript{pp}} at a switching frequency of about \SI{12.746}{MHz}. The 5V regulator exhibited a larger ripple of approximately \SI{3.6848}{V\textsubscript{pp}} at a switching frequency of about \SI{74.58}{MHz}. The increased ripple observed on the breadboard implementation is attributed to wiring inductance, contact resistance, and probe grounding effects during high-frequency measurements.
+
+\subsection{What have you learned?}
+Through this laboratory, I learned the practical process of assembling and testing DC--DC switching regulators. I verified the importance of accounting for parasitic resistances, such as wire and contact resistance, which caused a noticeable drop in $V_{out}$ under load (\SI{3.324}{V} $\rightarrow$ \SI{3.263}{V} and \SI{5.007}{V} $\rightarrow$ \SI{4.856}{V}). Additionally, I gained experience in measuring switching ripple and calculating efficiency from experimental voltage and current data using laboratory instruments.
+\end{document}
