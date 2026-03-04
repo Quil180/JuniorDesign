@@ -61,8 +61,8 @@ The purpose of this laboratory assignment was to become proficient with the PCB 
 \section{Methodology}
 The design process followed these standard steps:
 \begin{enumerate}
-	\item \textbf{Schematic Capture:} Components were placed and connected in the KiCad Schematic Editor. Custom symbols were verified/created where necessary to match the required footprints.
-	\item \textbf{PCB Layout:} The netlist was updated to the PCB Editor. Components were arranged (placed) to minimize noise and loop area, specifically focusing on the critical loop of the boost converter.
+	\item \textbf{Schematic Capture:} Components were placed and connected in the KiCad. Custom symbols were verified/created to match the footprints.
+	\item \textbf{PCB Layout:} Components were arranged to minimize noise and loop area, specifically focusing on the critical loop of the boost converter.
 	\item \textbf{Routing:} Traces were routed with appropriate widths for power (3.3V/5V) and signal lines.
 	\item \textbf{Verification:} Design Rule Checks (DRC) and Electrical Rule Checks (ERC) were performed to ensure manufacturability and electrical connectivity.
 \end{enumerate}
@@ -102,7 +102,7 @@ The components used in this design are listed in Table \ref{tab:bom}.
 	\begin{tabular}{|c|l|l|c|l|}
 		\hline
 		\textbf{Id} & \textbf{Designator} & \textbf{Footprint}        & \textbf{Qty} & \textbf{Designation} \\ \hline
-		1           & J1                  & PinSocket\_1x04\_Vertical & 1            & Conn\_01x04          \\ \hline
+		1           & J1                  & PinHeader\_1x04\_Vertical & 1            & Conn\_01x04          \\ \hline
 		2           & C1, C2              & CAP\_CL21\_SAM            & 2            & CL21A226MQQNNNE      \\ \hline
 		3           & D1                  & LED\_0805                 & 1            & LED                  \\ \hline
 		4           & L1                  & IND\_LQM18P               & 1            & LQM18PN4R7MFRL       \\ \hline
@@ -110,6 +110,17 @@ The components used in this design are listed in Table \ref{tab:bom}.
 		6           & R1                  & R\_1206                   & 1            & 1k$\Omega$           \\ \hline
 	\end{tabular}
 \end{table}
+
+\pagebreak
+\subsection{Fabrication Preview}
+To verify the final board design prior to manufacturing, the generated Gerber files were evaluated using a manufacturer's 3D viewer. Figure \ref{fig:jlpcb_preview} displays the rendered preview of the PCB via JLCPCB, confirming that the component footprints, drill holes, and board outline are correctly defined and ready for fabrication.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{jlpcb_preview.png}
+    \caption{3D Board Preview via JLCPCB}
+    \label{fig:jlpcb_preview}
+\end{figure}
 
 \section{Results and Verification}
 The design passed all Electronic Rule Checks (ERC) and Design Rule Checks (DRC) within KiCad.

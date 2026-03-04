@@ -501,7 +501,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../week4/Gerbers/",
       "pos_files": "../week4/",
       "specctra_dsn": "",
       "step": "",
