@@ -7,4 +7,7 @@
   (lib (name "2026-03-04_19-59-54")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/2026-03-04_19-59-54.kicad_sym")(options "")(descr ""))
   (lib (name "2026-03-04_20-04-54")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/2026-03-04_20-04-54.kicad_sym")(options "")(descr ""))
   (lib (name "2026-03-04_20-34-08")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/2026-03-04_20-34-08.kicad_sym")(options "")(descr ""))
+  (lib (name "2026-03-11_03-53-19")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/2026-03-11_03-53-19.kicad_sym")(options "")(descr ""))
+  (lib (name "LCD_DISP-6")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/LCD_DISP-6.kicad_sym")(options "")(descr ""))
+  (lib (name "2026-03-12_04-41-19")(type "KiCad")(uri "/home/quil/Documents/School/Classes/Spring26/EEL3926L/KicadProjects/library/main_board/symbols/2026-03-12_04-41-19.kicad_sym")(options "")(descr ""))
 )
