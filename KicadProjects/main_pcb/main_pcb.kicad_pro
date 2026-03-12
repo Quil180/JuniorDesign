@@ -58,20 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "lib_footprint_mismatch|113264500|76767500|aece767d-444c-4210-bc89-cbbf4d44b2b3|00000000-0000-0000-0000-000000000000",
-          "footprint edited on purpose"
-        ],
-        [
-          "lib_footprint_mismatch|113264500|96579500|171aac6f-8054-4e32-8159-59a87a0d7909|00000000-0000-0000-0000-000000000000",
-          "footprint edited on purpose"
-        ],
-        [
-          "lib_footprint_mismatch|168128500|135187500|026e0954-d553-418b-a16b-b0ef9a0bce1b|00000000-0000-0000-0000-000000000000",
-          "footprint edited on purpose"
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -431,6 +418,7 @@
       "bus_entry_needed": "error",
       "bus_to_bus_conflict": "error",
       "bus_to_net_conflict": "error",
+      "conflicting_netclasses": "error",
       "different_unit_footprint": "error",
       "different_unit_net": "error",
       "duplicate_reference": "error",
